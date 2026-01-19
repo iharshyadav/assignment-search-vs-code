@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# Search VS Code
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A code search tool for your projects. Built with React, TypeScript, and Fuse.js for fast fuzzy searching across files.
 
-Currently, two official plugins are available:
+## What it does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search through your files by name, path, or content
+- See code snippets with surrounding lines for context
+- Get relevance scores (0-100%) to see how well results match
+- Shows search time and how many results were found
+- Visual file icons to quickly identify file types
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
+pnpm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Build for production:
+```bash
+pnpm run build
 ```
+
+## How it works
+
+Type in the search bar and it searches your entire codebase in real-time. Each result shows:
+- The file name and path
+- A preview of the matching code
+- A relevance score showing how well it matched
+- Icons to show if it's TypeScript, JavaScript, JSON, etc.
+
+The search prioritizes results by:
+1. Matching file paths (highest priority)
+2. Matching file names
+3. Matching content inside files
+
+## Key features
+
+**Real-time Search** - Results appear as you type
+
+**Smart Matching** - Fuzzy search means it finds results even with typos or partial matches
+
+**Code Preview** - See the actual code that matched, not just the file name
+
+**Performance** - Typically completes searches in under 50ms
+
+## Tech used
+
+- React for the UI
+- TypeScript for type safety
+- Fuse.js for the fuzzy search algorithm
+- Tailwind CSS for styling
+- Lucide React for icons
+- Vite as the build tool
+
+## How the search works
+
+The search uses Fuse.js which is a fuzzy matching library. It doesn't require exact matches - so if you search for "comp" it will find "component", and if you search for "searh" it will still find "search". 
+
+The algorithm looks through three fields with different importance levels:
+- File paths (weighted 3x)
+- File names (weighted 2x) 
+- File content (weighted 1x)
+
+This means if you're looking for a file, it's faster to search by path or name than by content.
+
+---
+
+Made for searching code faster.
