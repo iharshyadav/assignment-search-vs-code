@@ -4,7 +4,7 @@
 
 <div align="center">
 
-![Demo Video](https://github.com/user-attachments/assets/387073d7-0055-40b4-83e0-cc5358d70a30)
+![Demo Video](https://github.com/user-attachments/assets/e4db9ac0-4006-45ac-96f1-8af3264b1f79)
 
 **[🚀 Live Demo](https://assignment-search-vs-code.vercel.app)** | **[📺 Watch Full Demo Video](https://github.com/user-attachments/assets/387073d7-0055-40b4-83e0-cc5358d70a30)**
 
@@ -243,7 +243,4 @@ Building this in 3 hours taught me:
 - That great UX comes from solving real problems, not adding features
 
 ---
-
-[View Live Demo](https://assignment-search-vs-code.vercel.app)
-
 </div>
