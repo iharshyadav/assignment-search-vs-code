@@ -4,7 +4,7 @@
 
 <div align="center">
 
-![Demo Video](https://github.com/user-attachments/assets/e4db9ac0-4006-45ac-96f1-8af3264b1f79)
+[![Watch Full Video](https://img.shields.io/badge/▶️_Watch_Full_Video-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://github.com/user-attachments/assets/387073d7-0055-40b4-83e0-cc5358d70a30)
 
 **[🚀 Live Demo](https://assignment-search-vs-code.vercel.app)** | **[📺 Watch Full Demo Video](https://github.com/user-attachments/assets/387073d7-0055-40b4-83e0-cc5358d70a30)**
 
